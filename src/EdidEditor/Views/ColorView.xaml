@@ -33,81 +33,97 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="0"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Red x:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Red}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-x" />
+            </StackPanel>
             <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
                 Text="{Binding RedX, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="1"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Red y:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Red}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-y" />
+            </StackPanel>
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Text="{Binding RedY, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="2"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Green x:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Green}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-x" />
+            </StackPanel>
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Text="{Binding GreenX, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="3"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Green y:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Green}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-y" />
+            </StackPanel>
             <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
                 Text="{Binding GreenY, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="4"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Blue x:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Blue}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-x" />
+            </StackPanel>
             <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="{Binding BlueX, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="5"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="Blue y:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_Blue}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-y" />
+            </StackPanel>
             <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
                 Text="{Binding BlueY, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="6"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="White x:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_White}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-x" />
+            </StackPanel>
             <TextBox
                 Grid.Row="6"
                 Grid.Column="1"
                 Text="{Binding WhiteX, Mode=OneWay}" />
 
-            <TextBlock
+            <StackPanel
                 Grid.Row="7"
                 Grid.Column="0"
-                Style="{StaticResource SectionLabelStyle}"
-                Text="White y:" />
+                Orientation="Horizontal">
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Color_White}" />
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="-y" />
+            </StackPanel>
             <TextBox
                 Grid.Row="7"
                 Grid.Column="1"

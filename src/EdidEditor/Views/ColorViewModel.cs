@@ -5,6 +5,8 @@ namespace EdidEditor.Views
 {
     public class ColorViewModel : ObservableObject
     {
+        private EdidInfo _edidInfo;
+
         private string _redX = string.Empty;
         private string _redY = string.Empty;
         private string _greenX = string.Empty;
@@ -64,6 +66,7 @@ namespace EdidEditor.Views
 
         public void SetData(EdidInfo edidInfo)
         {
+            _edidInfo = edidInfo;
             RedX = edidInfo.ChromaticityCoordinates.RedX.ToString("0.000");
             RedY = edidInfo.ChromaticityCoordinates.RedY.ToString("0.000");
             GreenX = edidInfo.ChromaticityCoordinates.GreenX.ToString("0.000");

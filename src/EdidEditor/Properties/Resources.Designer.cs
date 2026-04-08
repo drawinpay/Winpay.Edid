@@ -61,11 +61,47 @@ namespace EdidEditor.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Blue 的本地化字符串。
+        /// </summary>
+        public static string Color_Blue {
+            get {
+                return ResourceManager.GetString("Color_Blue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Green 的本地化字符串。
+        /// </summary>
+        public static string Color_Green {
+            get {
+                return ResourceManager.GetString("Color_Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Chromaticity Coordinates 的本地化字符串。
         /// </summary>
         public static string Color_PrimaryTitle {
             get {
                 return ResourceManager.GetString("Color_PrimaryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Red 的本地化字符串。
+        /// </summary>
+        public static string Color_Red {
+            get {
+                return ResourceManager.GetString("Color_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 White 的本地化字符串。
+        /// </summary>
+        public static string Color_White {
+            get {
+                return ResourceManager.GetString("Color_White", resourceCulture);
             }
         }
         

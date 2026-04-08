@@ -222,4 +222,16 @@
   <data name="EstablishedTimings_Manufacturer" xml:space="preserve">
     <value>制造商时序</value>
   </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>红色</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>绿色</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>蓝色</value>
+  </data>
+  <data name="Color_White" xml:space="preserve">
+    <value>白色</value>
+  </data>
 </root>
