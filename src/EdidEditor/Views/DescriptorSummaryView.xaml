@@ -1,0 +1,75 @@
+<UserControl
+    x:Class="EdidEditor.Views.DescriptorSummaryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel>
+        <GroupBox Header="Descriptor Summary">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Type:" />
+                <TextBox
+                        x:Name="TtbDescriptorType"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="260"
+                        HorizontalAlignment="Left" />
+
+                <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Valid:" />
+                <TextBox
+                        x:Name="TtbIsValid"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="120"
+                        HorizontalAlignment="Left" />
+
+                <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Details:" />
+                <TextBox
+                        x:Name="TtbDescription"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        MinHeight="80"
+                        Padding="4"
+                        AcceptsReturn="True"
+                        IsReadOnly="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Raw Descriptor Data">
+            <Grid Margin="12">
+                <TextBox
+                        x:Name="TtbRawData"
+                        MinHeight="80"
+                        Padding="4"
+                        AcceptsReturn="True"
+                        FontFamily="Consolas"
+                        FontSize="14"
+                        IsReadOnly="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

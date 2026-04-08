@@ -1,0 +1,277 @@
+<UserControl
+    x:Class="EdidEditor.Views.DisplayRangeLimitsDescriptorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel>
+        <GroupBox Header="Descriptor type">
+            <StackPanel Margin="12" IsHitTestVisible="False">
+                <RadioButton
+                    x:Name="RdbDisplayProductSerialNumber"
+                    Content="0xFF: Display Product Serial Number"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbAlphanumericDataString"
+                    Content="0xFE: Alphanumeric Data String Descriptor"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayRangeLimits"
+                    Content="0xFD: Display Range Limits"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayProductName"
+                    Content="0xFC: Display Product Name"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbColorPointData"
+                    Content="0xFB: Color Point Data"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbStandardTiming"
+                    Content="0xFA: Standard Timing Identifications"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayColorManagementData"
+                    Content="0xF9: Display Color Management (DCM) Data"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbCvt3ByteTimingCode"
+                    Content="0xF8: CVT 3 Byte Timing Codes"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbEstablishedTimingsIii"
+                    Content="0xF7: Established Timings III"
+                    GroupName="DescriptorTypeGroup" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Display Range Limits Offsets FLAGs">
+            <StackPanel Margin="12">
+                <StackPanel IsHitTestVisible="False">
+                    <RadioButton
+                        x:Name="RdbVerticalOffsetZero"
+                        Content="Vertical Rate Offsets are zero"
+                        GroupName="VerticalOffsetGroup" />
+                    <RadioButton
+                        x:Name="RdbVerticalOffsetMaxOnly"
+                        Content="Max. Vertical Rate + 255 Hz Offset; Min. Vertical Rate is not offset"
+                        GroupName="VerticalOffsetGroup" />
+                    <RadioButton
+                        x:Name="RdbVerticalOffsetMaxMin"
+                        Content="Max. Vertical Rate + 255 Hz Offset; Min. Vertical Rate + 255 Hz Offset"
+                        GroupName="VerticalOffsetGroup" />
+
+                    <RadioButton
+                        x:Name="RdbHorizontalOffsetZero"
+                        Content="Horizontal Rate Offsets are zero"
+                        GroupName="HorizontalOffsetGroup" />
+                    <RadioButton
+                        x:Name="RdbHorizontalOffsetMaxOnly"
+                        Content="Max. Horizontal Rate + 255 kHz Offset; Min. Horizontal Rate is not offset"
+                        GroupName="HorizontalOffsetGroup" />
+                    <RadioButton
+                        x:Name="RdbHorizontalOffsetMaxMin"
+                        Content="Max. Horizontal Rate + 255 kHz Offset; Min. Horizontal Rate + 255 kHz Offset"
+                        GroupName="HorizontalOffsetGroup" />
+                </StackPanel>
+
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="260" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Minimum vertical rate (1/255 Hz)" />
+                    <TextBox
+                        x:Name="TtbMinVerticalRate"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="140"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Maximum vertical rate (1/255 Hz)" />
+                    <TextBox
+                        x:Name="TtbMaxVerticalRate"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="140"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Minimum horizontal rate (1/255 kHz)" />
+                    <TextBox
+                        x:Name="TtbMinHorizontalRate"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="140"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Maximum horizontal rate (1/255 kHz)" />
+                    <TextBox
+                        x:Name="TtbMaxHorizontalRate"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Width="140"
+                        HorizontalAlignment="Left" />
+
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Style="{StaticResource SectionLabelStyle}"
+                        Text="Maximum pixel clock rate, rounded up to 10 MHz multiple (10/2550 MHz)" />
+                    <TextBox
+                        x:Name="TtbMaxPixelClock"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Width="140"
+                        HorizontalAlignment="Left" />
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Video Timing Support Flags">
+            <StackPanel Margin="12" IsHitTestVisible="False">
+                <RadioButton
+                    x:Name="RdbDefaultGtf"
+                    Content="0x00: Default GTF supported if bit 0 in Feature Support Byte at address 18h = 1"
+                    GroupName="VideoTimingSupportGroup" />
+                <RadioButton
+                    x:Name="RdbRangeLimitOnly"
+                    Content="0x01: Range Limits Only no additional timing information is provided"
+                    GroupName="VideoTimingSupportGroup" />
+                <RadioButton
+                    x:Name="RdbSecondaryGtf"
+                    Content="0x02: Secondary GTF supported requires support for Default GTF"
+                    GroupName="VideoTimingSupportGroup" />
+                <RadioButton
+                    x:Name="RdbCvt"
+                    Content="0x04: CVT supported if bit 0 in Feature Support Byte at address 18h = 1"
+                    GroupName="VideoTimingSupportGroup" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Compulsory Bytes Values">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 2 should be 00h:" />
+                <TextBox
+                    x:Name="TtbByte2Value"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 11 should be 0Ah:" />
+                <TextBox
+                    x:Name="TtbByte11Value"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 12 should be 20h:" />
+                <TextBox
+                    x:Name="TtbByte12Value"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 13 should be 20h:" />
+                <TextBox
+                    x:Name="TtbByte13Value"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 14 should be 20h:" />
+                <TextBox
+                    x:Name="TtbByte14Value"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 15 should be 20h:" />
+                <TextBox
+                    x:Name="TtbByte15Value"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 16 should be 20h:" />
+                <TextBox
+                    x:Name="TtbByte16Value"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,96 @@
+<UserControl
+    x:Class="EdidEditor.Views.SerialNumberDescriptorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel>
+        <GroupBox Header="Descriptor type">
+            <StackPanel Margin="12" IsHitTestVisible="False">
+                <RadioButton
+                    x:Name="RdbDisplayProductSerialNumber"
+                    Content="0xFF: Display Product Serial Number"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbAlphanumericDataString"
+                    Content="0xFE: Alphanumeric Data String Descriptor"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayRangeLimits"
+                    Content="0xFD: Display Range Limits"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayProductName"
+                    Content="0xFC: Display Product Name"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbColorPointData"
+                    Content="0xFB: Color Point Data"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbStandardTiming"
+                    Content="0xFA: Standard Timing Identifications"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbDisplayColorManagementData"
+                    Content="0xF9: Display Color Management (DCM) Data"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbCvt3ByteTimingCode"
+                    Content="0xF8: CVT 3 Byte Timing Codes"
+                    GroupName="DescriptorTypeGroup" />
+                <RadioButton
+                    x:Name="RdbEstablishedTimingsIii"
+                    Content="0xF7: Established Timings III"
+                    GroupName="DescriptorTypeGroup" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Serial number">
+            <Grid Margin="12">
+                <TextBox
+                    x:Name="TtbSerialNumber"
+                    Width="220"
+                    HorizontalAlignment="Left"
+                    FontSize="18"
+                    FontWeight="SemiBold" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Compulsory Bytes Values">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="260" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 2 should be 00h:" />
+                <TextBox
+                    x:Name="TtbByte2Value"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Byte 4 should be 00h:" />
+                <TextBox
+                    x:Name="TtbByte4Value"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\edid.bin" />
+    <None Remove="Resources\Images\btn_more_hover.png" />
+    <None Remove="Resources\Images\btn_more_normal.png" />
+    <None Remove="Resources\Images\icon.png" />
+    <None Remove="Resources\Images\status_selected.png" />
+    <None Remove="Resources\Images\status_unselected.png" />
+    <None Remove="Resources\Images\tips_error.png" />
+    <None Remove="Resources\Images\tips_ok.png" />
+    <None Remove="Resources\Images\tips_warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\edid.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EdidEditor.Theme.Light\EdidEditor.Theme.Light.csproj" />
+    <ProjectReference Include="..\Edid\Edid.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\btn_more_hover.png" />
+    <Resource Include="Resources\Images\btn_more_normal.png" />
+    <Resource Include="Resources\Images\icon.png" />
+    <Resource Include="Resources\Images\status_selected.png" />
+    <Resource Include="Resources\Images\status_unselected.png" />
+    <Resource Include="Resources\Images\tips_error.png" />
+    <Resource Include="Resources\Images\tips_ok.png" />
+    <Resource Include="Resources\Images\tips_warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="digital_edid.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

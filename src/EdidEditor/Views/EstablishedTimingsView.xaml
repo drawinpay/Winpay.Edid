@@ -1,0 +1,122 @@
+<UserControl
+    x:Class="EdidEditor.Views.EstablishedTimingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:EdidEditor.Views.Common"
+    xmlns:properties="clr-namespace:EdidEditor.Properties">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <common:PrimaryTitle
+                Title="{x:Static properties:Resources.EstablishedTimings_1}"
+                Grid.Row="0"
+                Margin="0,0,20,0" />
+
+            <ListBox
+                x:Name="LsbEstablishedTimings1"
+                Grid.Row="1"
+                Background="Transparent"
+                BorderThickness="0"
+                IsHitTestVisible="False">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Focusable" Value="False" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox
+                            Content="{Binding Text}"
+                            IsChecked="{Binding IsEnabled, Mode=OneWay}"
+                            IsEnabled="False" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <common:PrimaryTitle
+                Title="{x:Static properties:Resources.EstablishedTimings_2}"
+                Grid.Row="0"
+                Margin="0,0,20,0" />
+
+            <ListBox
+                x:Name="LsbEstablishedTimings2"
+                Grid.Row="1"
+                Background="Transparent"
+                BorderThickness="0"
+                IsHitTestVisible="False">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Focusable" Value="False" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox
+                            Content="{Binding Text}"
+                            IsChecked="{Binding IsEnabled, Mode=OneWay}"
+                            IsEnabled="False" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <common:PrimaryTitle
+                Title="{x:Static properties:Resources.EstablishedTimings_Manufacturer}"
+                Grid.Row="0"
+                Margin="0,0,20,0" />
+
+            <ListBox
+                x:Name="LsbManufacturerTimings"
+                Grid.Row="1"
+                Background="Transparent"
+                BorderThickness="0"
+                IsHitTestVisible="False">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0,0,0,4" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Focusable" Value="False" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox
+                            Content="{Binding Text}"
+                            IsChecked="{Binding IsEnabled, Mode=OneWay}"
+                            IsEnabled="False" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</UserControl>

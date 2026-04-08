@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <FontFamily x:Key="FontFamily.YaHei">Microsoft YaHei</FontFamily>
+
+    <sys:Double x:Key="FontSize.Header1">16</sys:Double>
+    <sys:Double x:Key="FontSize.Header2">16</sys:Double>
+    <sys:Double x:Key="FontSize.Header3">16</sys:Double>
+    <sys:Double x:Key="FontSize.Header4">16</sys:Double>
+
+    <sys:Double x:Key="FontSize.Title">16</sys:Double>
+    <sys:Double x:Key="FontSize.SubTitle">12</sys:Double>
+    <sys:Double x:Key="FontSize.Content">14</sys:Double>
+
+    <sys:Double x:Key="FontSize.10">10</sys:Double>
+</ResourceDictionary>

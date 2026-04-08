@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml" />
+        <ResourceDictionary Source="Brushes.xaml" />
+        <ResourceDictionary Source="Fonts.xaml" />
+        <ResourceDictionary Source="Geometry.xaml" />
+        <ResourceDictionary Source="Styles.TextBlock.xaml" />
+        <ResourceDictionary Source="Styles.TextBox.xaml" />
+        <ResourceDictionary Source="Styles.RadioButton.xaml" />
+        <ResourceDictionary Source="Styles.ScrollViewer.xaml" />
+        <ResourceDictionary Source="Styles.ListBoxItem.xaml" />
+        <ResourceDictionary Source="Styles.ListBox.xaml" />
+        <!--<ResourceDictionary Source="Styles.Border.xaml" />
+        <ResourceDictionary Source="Styles.Button.xaml" />
+        <ResourceDictionary Source="Styles.ToggleButton.xaml" />
+        <ResourceDictionary Source="Styles.CheckBox.xaml" />
+        <ResourceDictionary Source="Styles.Slider.xaml" />
+        <ResourceDictionary Source="Styles.ProgressBar.xaml" />
+        <ResourceDictionary Source="Styles.ToolTip.xaml" />
+        <ResourceDictionary Source="Styles.ComboBox.xaml" />
+        <ResourceDictionary Source="Styles.TabControl.xaml" />
+        <ResourceDictionary Source="Styles.GroupBox.xaml" />
+        <ResourceDictionary Source="Styles.UserControl.Loading.xaml" />
+        <ResourceDictionary Source="Styles.UserControl.Toast.xaml" />
+        <ResourceDictionary Source="Styles.UserControl.Hint.xaml" />-->
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

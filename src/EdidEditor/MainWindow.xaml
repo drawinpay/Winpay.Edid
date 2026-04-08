@@ -1,0 +1,144 @@
+﻿<Window
+    x:Class="EdidEditor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="clr-namespace:EdidEditor.Theme.Light.Helpers;assembly=EdidEditor.Theme.Light"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:EdidEditor.Properties"
+    xmlns:views="clr-namespace:EdidEditor.Views"
+    Title="{x:Static properties:Resources.MainWindow_Title}"
+    Width="1280"
+    Height="1024"
+    Icon="{StaticResource Image_Icon}"
+    ResizeMode="CanResize"
+    ShowInTaskbar="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style
+            x:Key="NavigationItemStyle"
+            BasedOn="{StaticResource Style.ListBoxItem.Default}"
+            TargetType="ListBoxItem">
+            <Setter Property="helpers:AttachedProperties.BackgroundChecked" Value="{StaticResource Brush.Background.Content}" />
+            <Setter Property="helpers:AttachedProperties.BackgroundCheckedHover" Value="{StaticResource Brush.Background.Content}" />
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="Margin" Value="-1,-1,-1,2" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource Brush.Background.Normal}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Menu
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <MenuItem Header="{x:Static properties:Resources.Menu_File}">
+                    <MenuItem Header="{x:Static properties:Resources.Menu_EdidImport}">
+                        <MenuItem
+                            x:Name="MiLoadBinaryData"
+                            Click="MiLoadBinaryData_OnClick"
+                            Header="{x:Static properties:Resources.Menu_EdidData_bin}" />
+                        <MenuItem
+                            x:Name="MiLoadTextData"
+                            Click="MiLoadTextData_OnClick"
+                            Header="{x:Static properties:Resources.Menu_EdidData_text}" />
+                    </MenuItem>
+                    <MenuItem Header="{x:Static properties:Resources.Menu_EdidExport}">
+                        <MenuItem
+                            x:Name="MiExportBinaryData"
+                            Click="MiExportBinaryData_OnClick"
+                            Header="{x:Static properties:Resources.Menu_EdidData_bin}" />
+                        <MenuItem
+                            x:Name="MiExportTextData"
+                            Click="MiExportTextData_OnClick"
+                            Header="{x:Static properties:Resources.Menu_EdidData_text}" />
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <views:RawEdidDataView
+                x:Name="PanelRawEdidData"
+                MinHeight="90"
+                MaxHeight="200" />
+
+            <Grid Grid.Row="1" Margin="0,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="{StaticResource FontSize.Header1}"
+                        Text="{x:Static properties:Resources.Header_DecodedData}" />
+                    <StackPanel
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <RadioButton Content="{x:Static properties:Resources.DataType_Simple}" IsChecked="True" />
+                        <RadioButton Content="{x:Static properties:Resources.DataType_Advanced}" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox
+                        x:Name="LsbSections"
+                        Background="{StaticResource Brush.Background.Normal}"
+                        ItemContainerStyle="{StaticResource NavigationItemStyle}"
+                        SelectionChanged="LsbSections_OnSelectionChanged"
+                        Style="{StaticResource Style.ListBox.Default}">
+                        <ListBoxItem
+                            Content="{x:Static properties:Resources.Section_GeneralInfo}"
+                            IsSelected="True"
+                            Tag="GeneralInfo" />
+                        <ListBoxItem Content="{x:Static properties:Resources.Section_Display}" Tag="Display" />
+                        <ListBoxItem Content="{x:Static properties:Resources.Section_Color}" Tag="Color" />
+                        <ListBoxItem Content="{x:Static properties:Resources.Section_EstablishedTimings}" Tag="EstablishedTimings" />
+                        <ListBoxItem Content="{x:Static properties:Resources.Setion_StandardTimings}" Tag="StandardTimings" />
+                        <ListBoxItem Tag="Descriptor1">Descriptor #1</ListBoxItem>
+                        <ListBoxItem Tag="Descriptor2">Descriptor #2</ListBoxItem>
+                        <ListBoxItem Tag="Descriptor3">Descriptor #3</ListBoxItem>
+                        <ListBoxItem Tag="Descriptor4">Descriptor #4</ListBoxItem>
+                    </ListBox>
+
+                    <Grid Grid.Column="1" Background="{StaticResource Brush.Background.Content}">
+                        <ScrollViewer
+                            Margin="10,0,0,0"
+                            Style="{StaticResource Style.ScrollViewer.Default}"
+                            VerticalScrollBarVisibility="Auto">
+                            <Grid>
+                                <views:GeneralInfoView x:Name="PanelGeneralInfo" />
+                                <views:DisplayView x:Name="PanelDisplay" Visibility="Collapsed" />
+                                <views:ColorView x:Name="PanelColor" Visibility="Collapsed" />
+                                <views:EstablishedTimingsView x:Name="PanelEstablishedTimings" Visibility="Collapsed" />
+                                <views:StandardTimingsView x:Name="PanelStandardTimings" Visibility="Collapsed" />
+                                <views:DescriptorsView x:Name="PanelDescriptors" Visibility="Collapsed" />
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

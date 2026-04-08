@@ -1,0 +1,67 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helpers="clr-namespace:EdidEditor.Theme.Light.Helpers">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles.ListBoxItem.xaml" />
+        <ResourceDictionary Source="Styles.ScrollViewer.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ListBox.Base" TargetType="ListBox">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="helpers:AttachedProperties.Orientation" Value="Vertical" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel
+                        IsItemsHost="True"
+                        Orientation="{Binding Path=(helpers:AttachedProperties.Orientation), RelativeSource={RelativeSource AncestorType=ListBox}}"
+                        VirtualizationMode="Recycling" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  默认样式（单行勾选）  -->
+    <Style
+        x:Key="Style.ListBox.Default"
+        BasedOn="{StaticResource ListBox.Base}"
+        TargetType="ListBox">
+        <Setter Property="helpers:AttachedProperties.ScrollViewerStyle" Value="{StaticResource Style.ScrollViewer.Default}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource Style.ListBoxItem.Default}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border
+                        Margin="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(helpers:AttachedProperties.CornerRadius), RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <ScrollViewer
+                            CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                            HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                            Style="{Binding Path=(helpers:AttachedProperties.ScrollViewerStyle), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="True" />
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

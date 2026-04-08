@@ -1,0 +1,311 @@
+<UserControl
+    x:Class="EdidEditor.Views.DetailedTimingDescriptorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel>
+        <GroupBox Header="Detailed Timing Descriptor">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Pixel clock:" />
+                <TextBox
+                    x:Name="TtbPixelClock"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Horizontal Addressable Video in pixels:" />
+                <TextBox
+                    x:Name="TtbHorizontalAddressableVideoPixels"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Vertical Addressable Video in lines:" />
+                <TextBox
+                    x:Name="TtbVerticalAddressableVideoLines"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Horizontal blanking pixels:" />
+                <TextBox
+                    x:Name="TtbHorizontalBlankingPixels"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Vertical Blanking in lines:" />
+                <TextBox
+                    x:Name="TtbVerticalBlankingLines"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Horizontal Front Porch in pixels:" />
+                <TextBox
+                    x:Name="TtbHorizontalFrontPorchPixels"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Vertical Front Porch in lines:" />
+                <TextBox
+                    x:Name="TtbVerticalFrontPorchLines"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Horizontal sync pulse width pixels:" />
+                <TextBox
+                    x:Name="TtbHorizontalSyncPulseWidth"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Vertical sync pulse width lines:" />
+                <TextBox
+                    x:Name="TtbVerticalSyncPulseWidth"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="9"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Horizontal Addressable Video Image Size in mm:" />
+                <TextBox
+                    x:Name="TtbHorizontalAddressableVideoImageSize"
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="10"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Vertical Addressable Video Image Size in mm:" />
+                <TextBox
+                    x:Name="TtbVerticalAddressableVideoImageSize"
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Border / Scan">
+            <Grid Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Right Horizontal Border or Left Horizontal Border in pixels:" />
+                <TextBox
+                    x:Name="TtbHorizontalBorderPixels"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource SectionLabelStyle}"
+                    Text="Top Vertical Border or Bottom Vertical Border in lines:" />
+                <TextBox
+                    x:Name="TtbVerticalBorderLines"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="140"
+                    HorizontalAlignment="Left" />
+
+                <CheckBox
+                    x:Name="ChkInterlaced"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,8,0,0"
+                    Content="Interlaced"
+                    IsHitTestVisible="False" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Stereo Viewing Support">
+            <StackPanel Margin="12" IsHitTestVisible="False">
+                <RadioButton
+                    x:Name="RdbStereoNoStereo"
+                    Content="Normal Display(No Stereo)"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereoFieldSequentialRightImage"
+                    Content="Field sequential stereo, right image when stereo sync signal = 1"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereoFieldSequentialLeftImage"
+                    Content="Field sequential stereo, left image when stereo sync signal = 1"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereo2WayInterleavedRightImage"
+                    Content="2-way interleaved stereo, right image on even lines"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereo2WayInterleavedLeftImage"
+                    Content="2-way interleaved stereo, left image on even lines"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereo4WayInterleaved"
+                    Content="4-way interleaved stereo"
+                    GroupName="StereoGroup" />
+                <RadioButton
+                    x:Name="RdbStereoSideBySide"
+                    Content="Side-by-Side interleaved stereo"
+                    GroupName="StereoGroup" />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Margin="0,12,0,0" Header="Sync Type">
+            <StackPanel Margin="12" IsHitTestVisible="False">
+                <RadioButton
+                    x:Name="RdbSyncAnalog"
+                    Content="Analog"
+                    GroupName="SyncTypeGroup" />
+
+                <StackPanel Margin="24,4,0,8">
+                    <RadioButton
+                        x:Name="RdbAnalogCompositeSync"
+                        Content="Analog Composite Sync"
+                        GroupName="AnalogSyncGroup" />
+                    <RadioButton
+                        x:Name="RdbAnalogBipolarCompositeSync"
+                        Content="Bipolar Analog Composite Sync"
+                        GroupName="AnalogSyncGroup" />
+                    <RadioButton
+                        x:Name="RdbAnalogWithoutSerrations"
+                        Content="Without Serrations"
+                        GroupName="AnalogSerrationGroup" />
+                    <RadioButton
+                        x:Name="RdbAnalogWithSerrations"
+                        Content="With Serrations (H-sync during V-sync)"
+                        GroupName="AnalogSerrationGroup" />
+                    <RadioButton
+                        x:Name="RdbAnalogSyncOnGreenOnly"
+                        Content="Sync On Green Signal only"
+                        GroupName="AnalogRgbGroup" />
+                    <RadioButton
+                        x:Name="RdbAnalogSyncOnAllRgbVideoSignals"
+                        Content="Sync On all three (RGB) video signals"
+                        GroupName="AnalogRgbGroup" />
+                </StackPanel>
+
+                <RadioButton
+                    x:Name="RdbSyncDigital"
+                    Content="Digital"
+                    GroupName="SyncTypeGroup" />
+
+                <StackPanel Margin="24,4,0,0">
+                    <RadioButton
+                        x:Name="RdbDigitalCompositeSync"
+                        Content="Digital Composite Sync"
+                        GroupName="DigitalSyncGroup" />
+                    <RadioButton
+                        x:Name="RdbDigitalWithoutSerrations"
+                        Content="Without Serrations"
+                        GroupName="DigitalSerrationGroup" />
+                    <RadioButton
+                        x:Name="RdbDigitalWithSerrations"
+                        Content="With Serrations (H-sync during V-sync)"
+                        GroupName="DigitalSerrationGroup" />
+                    <RadioButton
+                        x:Name="RdbDigitalSeparateSync"
+                        Content="Digital Separate Sync"
+                        GroupName="DigitalSyncGroup" />
+                    <CheckBox
+                        x:Name="ChkDigitalVerticalSyncPositive"
+                        Margin="24,2,0,0"
+                        Content="Vertical Sync is Positive"
+                        IsHitTestVisible="False" />
+                    <CheckBox
+                        x:Name="ChkDigitalHorizontalSyncPositive"
+                        Margin="24,2,0,0"
+                        Content="Horizontal Sync is Positive"
+                        IsHitTestVisible="False" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</UserControl>
