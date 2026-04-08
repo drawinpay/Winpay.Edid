@@ -273,4 +273,28 @@
     <value>White</value>
     <comment>White color</comment>
   </data>
+  <data name="Display_VideoInput_VideoSignal_Digital" xml:space="preserve">
+    <value>Digital</value>
+    <comment>Digital video signal interface</comment>
+  </data>
+  <data name="Display_VideoInput_VideoSignal_Analog" xml:space="preserve">
+    <value>Analog</value>
+    <comment>Analog video signal interface</comment>
+  </data>
+  <data name="Display_VideoInput_Digital_ColorBitDepth" xml:space="preserve">
+    <value>Color Bit Depth</value>
+    <comment>Color Bit Depth</comment>
+  </data>
+  <data name="Display_VideoInput_VideoSignalInterface" xml:space="preserve">
+    <value>Video Signal Interface</value>
+    <comment>Video Signal Interface</comment>
+  </data>
+  <data name="Display_VideoInput_Digital_VideoInterface" xml:space="preserve">
+    <value>Digital Video Interface Standard</value>
+    <comment>Digital Video Interface Standard</comment>
+  </data>
+  <data name="Display_VideoInput_Digital_ColorEncodingFormats" xml:space="preserve">
+    <value>Color Encoding Formats</value>
+    <comment>Color Encoding Formats</comment>
+  </data>
 </root>

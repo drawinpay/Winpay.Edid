@@ -5,7 +5,9 @@
     xmlns:common="clr-namespace:EdidEditor.Views.Common"
     xmlns:properties="clr-namespace:EdidEditor.Properties"
     xmlns:view="clr-namespace:EdidEditor.Views">
-
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleaToVisibilityConverter" />
+    </UserControl.Resources>
     <UserControl.DataContext>
         <view:DisplayViewModel />
     </UserControl.DataContext>
@@ -27,107 +29,161 @@
                 Title="{x:Static properties:Resources.Display_VideoInput}"
                 Grid.Row="0"
                 Margin="0,0,20,0" />
-            <StackPanel Grid.Row="1">
-                <TextBlock Text="Video Signal Interface" />
-                <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                    <RadioButton
-                        Margin="0,0,16,0"
-                        Content="Analog"
-                        IsChecked="{Binding IsAnalogInput, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="Digital"
-                        IsChecked="{Binding IsDigitalInput, Mode=OneWay}"
-                        IsEnabled="False" />
-                </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource SectionLabelStyle}" Text="{x:Static properties:Resources.Display_VideoInput_VideoSignalInterface}" />
+                    <StackPanel
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                        <RadioButton
+                            x:Name="RbtnAnalog"
+                            Margin="0,0,10,0"
+                            Content="{x:Static properties:Resources.Display_VideoInput_VideoSignal_Analog}"
+                            IsChecked="{Binding IsAnalogInput, Mode=OneWay}"
+                            IsEnabled="False" />
+                        <RadioButton
+                            x:Name="RbtnDigital"
+                            Content="{x:Static properties:Resources.Display_VideoInput_VideoSignal_Digital}"
+                            IsChecked="{Binding IsDigitalInput, Mode=OneWay}"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </Grid>
 
-                <TextBlock Margin="0,4,0,4" Text="Color Bit Depth:" />
-                <StackPanel Margin="20,0,0,8">
-                    <RadioButton
-                        Content="000 = Color Bit Depth is undefined"
-                        IsChecked="{Binding IsBitDepthUndefined, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="001 = 6 BPC"
-                        IsChecked="{Binding IsBitDepth6, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="010 = 8 BPC"
-                        IsChecked="{Binding IsBitDepth8, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="011 = 10 BPC"
-                        IsChecked="{Binding IsBitDepth10, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="100 = 12 BPC"
-                        IsChecked="{Binding IsBitDepth12, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="101 = 14 BPC"
-                        IsChecked="{Binding IsBitDepth14, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="110 = 16 BPC"
-                        IsChecked="{Binding IsBitDepth16, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="111 = Reserved"
-                        IsChecked="{Binding IsBitDepthReserved, Mode=OneWay}"
-                        IsEnabled="False" />
-                </StackPanel>
+                <Grid
+                    x:Name="GridDigitalSignal"
+                    Grid.Row="1"
+                    Margin="10,10,0,0"
+                    Visibility="{Binding ElementName=RbtnDigital, Path=IsChecked, Converter={StaticResource BooleaToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="{x:Static properties:Resources.Display_VideoInput_Digital_ColorBitDepth}" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,8">
+                            <RadioButton
+                                Content="000 = Undefined"
+                                IsChecked="{Binding IsBitDepthUndefined, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="001 = 6 BPC"
+                                IsChecked="{Binding IsBitDepth6, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="010 = 8 BPC"
+                                IsChecked="{Binding IsBitDepth8, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="011 = 10 BPC"
+                                IsChecked="{Binding IsBitDepth10, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="100 = 12 BPC"
+                                IsChecked="{Binding IsBitDepth12, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="101 = 14 BPC"
+                                IsChecked="{Binding IsBitDepth14, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="110 = 16 BPC"
+                                IsChecked="{Binding IsBitDepth16, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="111 = Reserved"
+                                IsChecked="{Binding IsBitDepthReserved, Mode=OneWay}"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
 
-                <TextBlock Margin="0,4,0,4" Text="Interface Standard Support:" />
-                <StackPanel Margin="20,0,0,8">
-                    <RadioButton
-                        Content="0000 = Digital Interface is not defined"
-                        IsChecked="{Binding IsInterfaceUndefined, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="0001 = DVI is supported"
-                        IsChecked="{Binding IsInterfaceDvi, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="0010 = HDMI-a is supported"
-                        IsChecked="{Binding IsInterfaceHdmiA, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="0011 = HDMI-b is supported"
-                        IsChecked="{Binding IsInterfaceHdmiB, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="0100 = MDDI is supported"
-                        IsChecked="{Binding IsInterfaceMddi, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="0101 = DisplayPort is supported"
-                        IsChecked="{Binding IsInterfaceDisplayPort, Mode=OneWay}"
-                        IsEnabled="False" />
-                </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="{x:Static properties:Resources.Display_VideoInput_Digital_VideoInterface}" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,8">
+                            <RadioButton
+                                Content="0000 = Undefined"
+                                IsChecked="{Binding IsInterfaceUndefined, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0001 = DVI"
+                                IsChecked="{Binding IsInterfaceDvi, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0010 = HDMI-a"
+                                IsChecked="{Binding IsInterfaceHdmiA, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0011 = HDMI-b"
+                                IsChecked="{Binding IsInterfaceHdmiB, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0100 = MDDI"
+                                IsChecked="{Binding IsInterfaceMddi, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0101 = DisplayPort"
+                                IsChecked="{Binding IsInterfaceDisplayPort, Mode=OneWay}"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
 
-                <TextBlock Margin="0,4,0,4" Text="Supported Color Encoding Formats:" />
-                <StackPanel Margin="20,0,0,0">
-                    <RadioButton
-                        Content="00 = RGB 4:4:4"
-                        IsChecked="{Binding IsColorFormatRgb444, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="01 = RGB 4:4:4 + YCrCb 4:4:4"
-                        IsChecked="{Binding IsColorFormatRgb444YCrCb444, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="10 = RGB 4:4:4 + YCrCb 4:2:2"
-                        IsChecked="{Binding IsColorFormatRgb444YCrCb422, Mode=OneWay}"
-                        IsEnabled="False" />
-                    <RadioButton
-                        Content="11 = RGB 4:4:4 + YCrCb 4:4:4 + YCrCb 4:2:2"
-                        IsChecked="{Binding IsColorFormatRgb444YCrCb444YCrCb422, Mode=OneWay}"
-                        IsEnabled="False" />
-                </StackPanel>
-            </StackPanel>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="{x:Static properties:Resources.Display_VideoInput_Digital_ColorEncodingFormats}" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <RadioButton
+                                Content="00 = RGB 4:4:4"
+                                IsChecked="{Binding IsColorFormatRgb444, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="01 = RGB 4:4:4 + YCrCb 4:4:4"
+                                IsChecked="{Binding IsColorFormatRgb444YCrCb444, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="10 = RGB 4:4:4 + YCrCb 4:2:2"
+                                IsChecked="{Binding IsColorFormatRgb444YCrCb422, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="11 = RGB 4:4:4 + YCrCb 4:4:4 + YCrCb 4:2:2"
+                                IsChecked="{Binding IsColorFormatRgb444YCrCb444YCrCb422, Mode=OneWay}"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="0,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -210,21 +266,27 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="0,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <common:PrimaryTitle Title="{x:Static properties:Resources.Display_DisplayTransferCharacteristic}" Margin="0,0,20,0" />
             <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource SectionLabelStyle}" Text="GAMMA" />
                 <TextBox
+                    Grid.Column="1"
                     Width="120"
                     HorizontalAlignment="Left"
                     Text="{Binding Gamma, Mode=OneWay}" />
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="3" Margin="0,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />

@@ -234,4 +234,22 @@
   <data name="Color_White" xml:space="preserve">
     <value>白色</value>
   </data>
+  <data name="Display_VideoInput_VideoSignal_Digital" xml:space="preserve">
+    <value>数字信号</value>
+  </data>
+  <data name="Display_VideoInput_VideoSignal_Analog" xml:space="preserve">
+    <value>模拟信号</value>
+  </data>
+  <data name="Display_VideoInput_Digital_ColorBitDepth" xml:space="preserve">
+    <value>颜色位深</value>
+  </data>
+  <data name="Display_VideoInput_VideoSignalInterface" xml:space="preserve">
+    <value>视频信号类型</value>
+  </data>
+  <data name="Display_VideoInput_Digital_VideoInterface" xml:space="preserve">
+    <value>数字视频接口标准</value>
+  </data>
+  <data name="Display_VideoInput_Digital_ColorEncodingFormats" xml:space="preserve">
+    <value>颜色编码格式</value>
+  </data>
 </root>

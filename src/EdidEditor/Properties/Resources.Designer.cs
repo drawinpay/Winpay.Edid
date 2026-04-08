@@ -160,6 +160,60 @@ namespace EdidEditor.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Color Bit Depth 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_Digital_ColorBitDepth {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_Digital_ColorBitDepth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Color Encoding Formats 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_Digital_ColorEncodingFormats {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_Digital_ColorEncodingFormats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Digital Video Interface Standard 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_Digital_VideoInterface {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_Digital_VideoInterface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Analog 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_VideoSignal_Analog {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_VideoSignal_Analog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Digital 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_VideoSignal_Digital {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_VideoSignal_Digital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Video Signal Interface 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_VideoSignalInterface {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_VideoSignalInterface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Established Timing I 的本地化字符串。
         /// </summary>
         public static string EstablishedTimings_1 {
