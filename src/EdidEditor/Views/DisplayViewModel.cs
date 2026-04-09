@@ -53,6 +53,17 @@ namespace EdidEditor.Views
         private bool _isV1OnMinus04;
         private bool _isV07On0;
 
+        private bool _isBlankLevelEqualsBlackLevel;
+        private bool _isBlankToBlackSetupOrPedestal;
+        private bool _isSeparateSyncSupported;
+        private bool _isCompositeSyncSupported;
+        private bool _isSyncOnGreenSupported;
+        private bool _isVSyncSerratedOnComposite;
+        private bool _isAnalogColorMonochrome;
+        private bool _isAnalogColorRgb;
+        private bool _isAnalogColorNonRgb;
+        private bool _isAnalogColorUndefined;
+
         public bool IsAnalogInput
         {
             get => _isAnalogInput;
@@ -195,6 +206,66 @@ namespace EdidEditor.Views
         {
             get => _isV07On0;
             set => SetProperty(ref _isV07On0, value);
+        }
+
+        public bool IsBlankLevelEqualsBlackLevel
+        {
+            get => _isBlankLevelEqualsBlackLevel;
+            set => SetProperty(ref _isBlankLevelEqualsBlackLevel, value);
+        }
+
+        public bool IsBlankToBlackSetupOrPedestal
+        {
+            get => _isBlankToBlackSetupOrPedestal;
+            set => SetProperty(ref _isBlankToBlackSetupOrPedestal, value);
+        }
+
+        public bool IsSeparateSyncSupported
+        {
+            get => _isSeparateSyncSupported;
+            set => SetProperty(ref _isSeparateSyncSupported, value);
+        }
+
+        public bool IsCompositeSyncSupported
+        {
+            get => _isCompositeSyncSupported;
+            set => SetProperty(ref _isCompositeSyncSupported, value);
+        }
+
+        public bool IsSyncOnGreenSupported
+        {
+            get => _isSyncOnGreenSupported;
+            set => SetProperty(ref _isSyncOnGreenSupported, value);
+        }
+
+        public bool IsVSyncSerratedOnComposite
+        {
+            get => _isVSyncSerratedOnComposite;
+            set => SetProperty(ref _isVSyncSerratedOnComposite, value);
+        }
+
+        public bool IsAnalogColorMonochrome
+        {
+            get => _isAnalogColorMonochrome;
+            set => SetProperty(ref _isAnalogColorMonochrome, value);
+        }
+
+        public bool IsAnalogColorRgb
+        {
+            get => _isAnalogColorRgb;
+            set => SetProperty(ref _isAnalogColorRgb, value);
+        }
+
+        public bool IsAnalogColorNonRgb
+        {
+            get => _isAnalogColorNonRgb;
+            set => SetProperty(ref _isAnalogColorNonRgb, value);
+        }
+
+        public bool IsAnalogColorUndefined
+        {
+            get => _isAnalogColorUndefined;
+            set => SetProperty(ref _isAnalogColorUndefined, value);
         }
 
         public bool IsScreenSizeTypeSize
@@ -361,7 +432,9 @@ namespace EdidEditor.Views
             }
             else
             {
-                switch (basicDisplayInfo.AnalogInput!.SignalLevelStandard)
+                AnalogVideoInput analogInput = basicDisplayInfo.AnalogInput!;
+
+                switch (analogInput.SignalLevelStandard)
                 {
                     case AnalogVideoWhiteLevel.V07OnMinus03:
                         IsV07OnMinus03 = true;
@@ -377,9 +450,28 @@ namespace EdidEditor.Views
                         break;
                 }
 
-                if (basicDisplayInfo.AnalogInput.IsBlankToBlackExpected)
-                {
+                IsBlankLevelEqualsBlackLevel = !analogInput.IsBlankToBlackExpected;
+                IsBlankToBlackSetupOrPedestal = analogInput.IsBlankToBlackExpected;
 
+                IsSeparateSyncSupported = analogInput.IsSeparateSyncSupported;
+                IsCompositeSyncSupported = analogInput.IsCompositeSyncSupported;
+                IsSyncOnGreenSupported = analogInput.IsSyncOnGreenSupported;
+                IsVSyncSerratedOnComposite = analogInput.IsVSyncSerratedOnComposite;
+
+                switch (basicDisplayInfo.AnalogColorType)
+                {
+                    case AnalogDisplayColorType.Monochrome:
+                        IsAnalogColorMonochrome = true;
+                        break;
+                    case AnalogDisplayColorType.RGB:
+                        IsAnalogColorRgb = true;
+                        break;
+                    case AnalogDisplayColorType.NonRGB:
+                        IsAnalogColorNonRgb = true;
+                        break;
+                    default:
+                        IsAnalogColorUndefined = true;
+                        break;
                 }
             }
 
@@ -449,6 +541,19 @@ namespace EdidEditor.Views
             IsV0714OnMinus0286 = false;
             IsV1OnMinus04 = false;
             IsV07On0 = false;
+
+            IsBlankLevelEqualsBlackLevel = false;
+            IsBlankToBlackSetupOrPedestal = false;
+
+            IsSeparateSyncSupported = false;
+            IsCompositeSyncSupported = false;
+            IsSyncOnGreenSupported = false;
+            IsVSyncSerratedOnComposite = false;
+
+            IsAnalogColorMonochrome = false;
+            IsAnalogColorRgb = false;
+            IsAnalogColorNonRgb = false;
+            IsAnalogColorUndefined = false;
         }
     }
 }

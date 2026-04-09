@@ -218,7 +218,7 @@
                                 IsEnabled="False" />
                             <RadioButton
                                 Content="0.700 : 0.000 : 0.700 V p-p"
-                                IsChecked="{Binding IsV07OnMinus00, Mode=OneWay}"
+                                IsChecked="{Binding IsV07On0, Mode=OneWay}"
                                 IsEnabled="False" />
                         </StackPanel>
                     </Grid>
@@ -235,14 +235,15 @@
                         <StackPanel Grid.Row="1" Margin="20,0,0,0">
                             <RadioButton
                                 Content="Blank Level = Black Level"
-                                IsChecked="{Binding IsV07OnMinus03, Mode=OneWay}"
+                                IsChecked="{Binding IsBlankLevelEqualsBlackLevel, Mode=OneWay}"
                                 IsEnabled="False" />
                             <RadioButton
                                 Content="Blank-to-Black setup or pedestal"
-                                IsChecked="{Binding IsV0714OnMinus0286, Mode=OneWay}"
+                                IsChecked="{Binding IsBlankToBlackSetupOrPedestal, Mode=OneWay}"
                                 IsEnabled="False" />
                         </StackPanel>
                     </Grid>
+
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -253,11 +254,21 @@
                             Style="{StaticResource SectionLabelStyle}"
                             Text="Synchronization Types" />
                         <StackPanel Grid.Row="1" Margin="20,0,0,0">
-                            <CheckBox Content="Separate Sync H and V Signals" IsEnabled="False" />
-                            <CheckBox Content="Composite Sync Signal on Horizontal" IsEnabled="False" />
-                            <CheckBox Content="Composite Sync Signal on Green Video" IsEnabled="False" />
+                            <CheckBox
+                                Content="Separate Sync H and V Signals"
+                                IsChecked="{Binding IsSeparateSyncSupported, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <CheckBox
+                                Content="Composite Sync Signal on Horizontal"
+                                IsChecked="{Binding IsCompositeSyncSupported, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <CheckBox
+                                Content="Composite Sync Signal on Green Video"
+                                IsChecked="{Binding IsSyncOnGreenSupported, Mode=OneWay}"
+                                IsEnabled="False" />
                         </StackPanel>
                     </Grid>
+
                     <Grid Grid.Row="3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -268,9 +279,13 @@
                             Style="{StaticResource SectionLabelStyle}"
                             Text="Serrations" />
                         <StackPanel Grid.Row="1" Margin="20,0,0,0">
-                            <RadioButton Content="Serration on the Vertical Sync " IsEnabled="False" />
+                            <CheckBox
+                                Content="Serration on the Vertical Sync"
+                                IsChecked="{Binding IsVSyncSerratedOnComposite, Mode=OneWay}"
+                                IsEnabled="False" />
                         </StackPanel>
                     </Grid>
+
                     <Grid Grid.Row="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -281,10 +296,22 @@
                             Style="{StaticResource SectionLabelStyle}"
                             Text="Display Color Type" />
                         <StackPanel Grid.Row="1" Margin="20,0,0,0">
-                            <RadioButton Content="Monochrome or Grayscale display" IsEnabled="False" />
-                            <RadioButton Content="RGB color display" IsEnabled="False" />
-                            <RadioButton Content="Non-RGB color display" IsEnabled="False" />
-                            <RadioButton Content="Display Color Type is Undefined" IsEnabled="False" />
+                            <RadioButton
+                                Content="Monochrome or Grayscale display"
+                                IsChecked="{Binding IsAnalogColorMonochrome, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="RGB color display"
+                                IsChecked="{Binding IsAnalogColorRgb, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="Non-RGB color display"
+                                IsChecked="{Binding IsAnalogColorNonRgb, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="Display Color Type is Undefined"
+                                IsChecked="{Binding IsAnalogColorUndefined, Mode=OneWay}"
+                                IsEnabled="False" />
                         </StackPanel>
                     </Grid>
                 </Grid>
