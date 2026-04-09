@@ -9,6 +9,7 @@ namespace EdidEditor.Views
 {
     public partial class DescriptorsView : UserControl
     {
+        private EdidInfo _edidInfo;
         private IDescriptor[]? descriptors;
 
         public DescriptorsView()
@@ -18,6 +19,7 @@ namespace EdidEditor.Views
 
         public void SetData(EdidInfo edidInfo)
         {
+            _edidInfo = edidInfo;
             descriptors = edidInfo.Descriptors;
             ShowDescriptor(0);
         }
@@ -27,7 +29,7 @@ namespace EdidEditor.Views
             ContentDescriptor.Content = BuildDescriptorContent(descriptors, index);
         }
 
-        private static UIElement BuildDescriptorContent(IDescriptor[]? descriptors, int index)
+        private  UIElement BuildDescriptorContent(IDescriptor[]? descriptors, int index)
         {
             if (descriptors == null || index < 0 || descriptors.Length <= index || descriptors[index] == null)
             {
@@ -38,15 +40,15 @@ namespace EdidEditor.Views
                 };
             }
 
-            return BuildDescriptorView(descriptors[index]);
+            return BuildDescriptorView(descriptors[index], _edidInfo.BasicDisplayInfo.InputType == Edid.DisplayInfo.VideoInputType.Digital);
         }
 
-        private static UserControl BuildDescriptorView(IDescriptor descriptor)
+        private static UserControl BuildDescriptorView(IDescriptor descriptor, bool isDigital)
         {
             if (descriptor is DetailedTimingDescriptor detailedTimingDescriptor)
             {
                 var detailedTimingView = new DetailedTimingDescriptorView();
-                detailedTimingView.SetData(detailedTimingDescriptor);
+                detailedTimingView.SetData(detailedTimingDescriptor, isDigital);
                 return detailedTimingView;
             }
 

@@ -553,7 +553,7 @@ namespace Edid.Descriptors.DetailedTiming
             {
                 if (BitReader.ReadBitAsBool(17, 4))
                 {
-                    throw new InvalidDescriptorException("The provided data does not belong to an analog signal descriptor.");
+                    //throw new InvalidDescriptorException("The provided data does not belong to an analog signal descriptor.");
                 }
             }
         }

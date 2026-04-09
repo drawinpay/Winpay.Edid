@@ -68,6 +68,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
+
                     <Grid Grid.Row="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -180,6 +181,113 @@
                     </Grid>
                 </Grid>
 
+                <Grid
+                    x:Name="GridAnalogSignal"
+                    Grid.Row="1"
+                    Margin="10,10,0,0"
+                    Visibility="{Binding ElementName=RbtnAnalog, Path=IsChecked, Converter={StaticResource BooleaToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="{x:Static properties:Resources.Display_VideoInput_Analog_SignalLevelStandard}" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <RadioButton
+                                Content="0.700 : 0.300 : 1.000 V p-p"
+                                IsChecked="{Binding IsV07OnMinus03, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0.714 : 0.286 : 1.000 V p-p"
+                                IsChecked="{Binding IsV0714OnMinus0286, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="1.000 : 0.400 : 1.400 V p-p"
+                                IsChecked="{Binding IsV1OnMinus04, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="0.700 : 0.000 : 0.700 V p-p"
+                                IsChecked="{Binding IsV07OnMinus00, Mode=OneWay}"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="Video Setup" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <RadioButton
+                                Content="Blank Level = Black Level"
+                                IsChecked="{Binding IsV07OnMinus03, Mode=OneWay}"
+                                IsEnabled="False" />
+                            <RadioButton
+                                Content="Blank-to-Black setup or pedestal"
+                                IsChecked="{Binding IsV0714OnMinus0286, Mode=OneWay}"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="Synchronization Types" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <CheckBox Content="Separate Sync H and V Signals" IsEnabled="False" />
+                            <CheckBox Content="Composite Sync Signal on Horizontal" IsEnabled="False" />
+                            <CheckBox Content="Composite Sync Signal on Green Video" IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="Serrations" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <RadioButton Content="Serration on the Vertical Sync " IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Style="{StaticResource SectionLabelStyle}"
+                            Text="Display Color Type" />
+                        <StackPanel Grid.Row="1" Margin="20,0,0,0">
+                            <RadioButton Content="Monochrome or Grayscale display" IsEnabled="False" />
+                            <RadioButton Content="RGB color display" IsEnabled="False" />
+                            <RadioButton Content="Non-RGB color display" IsEnabled="False" />
+                            <RadioButton Content="Display Color Type is Undefined" IsEnabled="False" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
 

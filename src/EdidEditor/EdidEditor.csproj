@@ -60,6 +60,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="analog_edid.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="digital_edid.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

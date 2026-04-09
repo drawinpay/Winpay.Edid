@@ -160,6 +160,15 @@ namespace EdidEditor.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Signal Level Standard ( Video : Sync : Total) 的本地化字符串。
+        /// </summary>
+        public static string Display_VideoInput_Analog_SignalLevelStandard {
+            get {
+                return ResourceManager.GetString("Display_VideoInput_Analog_SignalLevelStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Color Bit Depth 的本地化字符串。
         /// </summary>
         public static string Display_VideoInput_Digital_ColorBitDepth {

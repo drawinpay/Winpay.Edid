@@ -252,4 +252,7 @@
   <data name="Display_VideoInput_Digital_ColorEncodingFormats" xml:space="preserve">
     <value>颜色编码格式</value>
   </data>
+  <data name="Display_VideoInput_Analog_SignalLevelStandard" xml:space="preserve">
+    <value>信号电平标准 （视频：同步：总计）</value>
+  </data>
 </root>

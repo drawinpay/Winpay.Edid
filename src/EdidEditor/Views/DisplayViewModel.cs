@@ -1,4 +1,4 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Edid.Common;
 using Edid.DisplayInfo;
 
@@ -47,6 +47,11 @@ namespace EdidEditor.Views
         private bool _isDefaultSrgbStandard;
         private bool _isPreferredTimingIncludesNative;
         private bool _isDisplayContinuousFrequency;
+
+        private bool _isV07OnMinus03;
+        private bool _isV0714OnMinus0286;
+        private bool _isV1OnMinus04;
+        private bool _isV07On0;
 
         public bool IsAnalogInput
         {
@@ -168,6 +173,30 @@ namespace EdidEditor.Views
             set => SetProperty(ref _isColorFormatRgb444YCrCb444YCrCb422, value);
         }
 
+        public bool IsV07OnMinus03
+        {
+            get => _isV07OnMinus03;
+            set => SetProperty(ref _isV07OnMinus03, value);
+        }
+
+        public bool IsV0714OnMinus0286
+        {
+            get => _isV0714OnMinus0286;
+            set => SetProperty(ref _isV0714OnMinus0286, value);
+        }
+
+        public bool IsV1OnMinus04
+        {
+            get => _isV1OnMinus04;
+            set => SetProperty(ref _isV1OnMinus04, value);
+        }
+
+        public bool IsV07On0
+        {
+            get => _isV07On0;
+            set => SetProperty(ref _isV07On0, value);
+        }
+
         public bool IsScreenSizeTypeSize
         {
             get => _isScreenSizeTypeSize;
@@ -258,6 +287,7 @@ namespace EdidEditor.Views
             IsDigitalInput = basicDisplayInfo.InputType == VideoInputType.Digital;
 
             ResetDigitalSelections();
+            ResetAnalogSelections();
 
             if (basicDisplayInfo.InputType == VideoInputType.Digital)
             {
@@ -329,6 +359,29 @@ namespace EdidEditor.Views
                         break;
                 }
             }
+            else
+            {
+                switch (basicDisplayInfo.AnalogInput!.SignalLevelStandard)
+                {
+                    case AnalogVideoWhiteLevel.V07OnMinus03:
+                        IsV07OnMinus03 = true;
+                        break;
+                    case AnalogVideoWhiteLevel.V0714OnMinus0286:
+                        IsV0714OnMinus0286 = true;
+                        break;
+                    case AnalogVideoWhiteLevel.V1OnMinus04:
+                        IsV1OnMinus04 = true;
+                        break;
+                    case AnalogVideoWhiteLevel.V07On0:
+                        IsV07On0 = true;
+                        break;
+                }
+
+                if (basicDisplayInfo.AnalogInput.IsBlankToBlackExpected)
+                {
+
+                }
+            }
 
             IsScreenSizeTypeSize = basicDisplayInfo.ScreenSizeType == ScreenSizeType.WidthAndHeight;
             IsScreenSizeTypePortrait = basicDisplayInfo.ScreenSizeType == ScreenSizeType.PortraitAspectRatio;
@@ -388,6 +441,14 @@ namespace EdidEditor.Views
             IsColorFormatRgb444YCrCb444 = false;
             IsColorFormatRgb444YCrCb422 = false;
             IsColorFormatRgb444YCrCb444YCrCb422 = false;
+        }
+
+        private void ResetAnalogSelections()
+        {
+            IsV07OnMinus03 = false;
+            IsV0714OnMinus0286 = false;
+            IsV1OnMinus04 = false;
+            IsV07On0 = false;
         }
     }
 }

@@ -297,4 +297,8 @@
     <value>Color Encoding Formats</value>
     <comment>Color Encoding Formats</comment>
   </data>
+  <data name="Display_VideoInput_Analog_SignalLevelStandard" xml:space="preserve">
+    <value>Signal Level Standard ( Video : Sync : Total)</value>
+    <comment>Signal Level Standard ( Video : Sync : Total)</comment>
+  </data>
 </root>

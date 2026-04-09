@@ -10,7 +10,7 @@ namespace EdidEditor.Views
             InitializeComponent();
         }
 
-        public void SetData(DetailedTimingDescriptor descriptor)
+        public void SetData(DetailedTimingDescriptor descriptor, bool isDigital)
         {
             TtbPixelClock.Text = (descriptor.PixelClock / 1000).ToString();
             TtbHorizontalAddressableVideoPixels.Text = descriptor.HorizontalAddressableVideoPixels.ToString();
@@ -54,7 +54,7 @@ namespace EdidEditor.Views
             }
 
             ResetSyncOptions();
-            if (IsDigital(descriptor))
+            if (isDigital)
             {
                 RdbSyncDigital.IsChecked = true;
 
